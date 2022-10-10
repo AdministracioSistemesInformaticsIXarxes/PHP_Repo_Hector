@@ -7,4 +7,5 @@ Tota la documentació útil d'aquest codi es:
 Creat per Hector Blanco García
 
 # Tags
-- V0.1: Exemple Hello World en PHP i HTML sense Separation of Concerne -> Sense MVC
+- V0.1: Exemple Hello World en PHP i HTML sense Separation of Concerns -> Sense MVC
+- V0.2: Exemple Hello Wolrd en PHP i HTML amb Separation of Concerns -> Amb MVC
