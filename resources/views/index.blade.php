@@ -16,7 +16,24 @@
 </head>
 <body>
     <header>
-        <?=$greeting;?>
+        <h1><?=$greeting;?></h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Completes</th>
+            </tr>
+
+            <?php foreach ($tasks as $task): ?>
+            <tr>
+                <td>1<?=$task->id;?></td>
+                <td>1<?=$task->tittle;?></td>
+                <td>1<?=$task->description;?></td>
+                <td>1<?=$task->completed;?></td>
+            </tr>
+        </table>
+
     </header>
 </body>
 </html>
