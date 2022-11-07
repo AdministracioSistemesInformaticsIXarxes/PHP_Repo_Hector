@@ -30,10 +30,11 @@
                 <td>1<?=$task->id;?></td>
                 <td>1<?=$task->tittle;?></td>
                 <td>1<?=$task->description;?></td>
-                <td>1<?=$task->completed;?></td>
+               <td>1<?=$task->completed;?></td>
             </tr>
+        <?php endforeach; ?>
         </table>
 
     </header>
-</body>
+    </body>
 </html>
