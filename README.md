@@ -8,3 +8,4 @@ Creat per Hector Blanco García
 - V0.1: Exemple Hello World en PHP i HTML sense Separation of Concerne -> Sense MVC
 - V0.2: Versió Hello World amb MVC
 - V0.3: Versió del codi al final del primer video
+- V0.4: Separem la configuració {config.php} del codi -> Implementant la O de SOLID -> Open To Extension
