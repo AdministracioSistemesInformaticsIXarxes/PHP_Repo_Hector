@@ -1,0 +1,17 @@
+{
+    "name": "hector/php_project_m9",
+    "description": "Projecte de iniciació al PHP amb Laravel",
+    "type": "project",
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Hector",
+            "email": "hblanco@iesebre.com"
+        }
+    ],
+    "require": {}
+}
