@@ -14,6 +14,8 @@
         }
     </style>
 </head>
+
+<?php require '/resources/views/layout/nav.blade.php'?>
 <body>
     <header>
         <h1><?=$greeting;?></h1>
