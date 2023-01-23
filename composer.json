@@ -5,6 +5,9 @@
     "autoload": {
         "classmap": [
             "./"
+        ],
+        "files": [
+            "framework/helpers.php"
         ]
     },
     "authors": [
@@ -13,5 +16,7 @@
             "email": "hblanco@iesebre.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
 }
