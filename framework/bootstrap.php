@@ -1,14 +1,12 @@
 <?php
 
-use framework\App;
-use framework\Database\Connection;
-use framework\Database\Database;
-use Framework\Route;
+use Dotenv\Dotenv;
+use Framework\App;
+use Framework\Database\Connection;
+use Framework\Database\Database;
 
-$routes = require '../routes.php';
-
-$ddtenv = Dotenv::createImmutable(__DIR__ . '/app');
-$ddtenv->load();   
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
 
 require 'framework/helpers.php';
 
