@@ -2,16 +2,19 @@
 
 use Dotenv\Dotenv;
 use Framework\App;
-use Framework\Database\Connection;
-use Framework\Database\Database;
+use framework\Database\Connection;
+use framework\Database\Database;
+use Framework\Route;
 
-$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$routes = require '../routes.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__.'/..');
 $dotenv->load();
+// Laravel Service Providers
+App::bind('config', require '../config.php');
 
-require 'framework/helpers.php';
-
-App::bind('config', require 'config.php');
-
-App::bind('database', Database::make(
+App::bind('database', new Database(
     Connection::make(App::get('config')['database'])
 ));
+
+App::bind('router', (new Route())->define($routes));

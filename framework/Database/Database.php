@@ -2,7 +2,6 @@
 
 namespace framework\Database;
 
-use framework\Task;
 use PDO;
 
 class Database
@@ -13,17 +12,30 @@ class Database
     {
         $this->pdo = $pdo;
     }
-    public static function selectAll($table){
 
-        $statement = static::$dbh->prepare("SELECT * FROM $table;");
+    public function selectAll($table) {
+        $statement = $this->pdo->prepare("SELECT * FROM $table;");
 
         $statement->execute();
 
-        return $statement->fetchAll(PDO::FETCH_CLASS, Task::class);
+        return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
 
-    function insert(){
-        // TODO
+    function insert($table, $parameters) {
+        $sql = sprintf(
+            'insert into %s (%s) values (%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
+        );
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($parameters);
+        } catch (\Exception $e) {
+            //
+        }
     }
 }

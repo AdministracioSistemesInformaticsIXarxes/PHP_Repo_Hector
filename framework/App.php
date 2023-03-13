@@ -1,21 +1,23 @@
 <?php
 
-namespace framework;
+namespace Framework;
 
 use Exception;
 
-class App {
+class App{
 
-    private $container = [];
+    private static $container = [];
 
-    public static function bind ($key, $value) {
+    public static function bind($key, $value)
+    {
         static::$container[$key] = $value;
     }
 
-    public function get ($key) {
-        if (! array_key_exists($key, $this->container)) {
+    public static function get($key)
+    {
+        if (! array_key_exists($key, static::$container)){
             throw new Exception("No {$key} is bound in the container.");
         }
-        return $this->container[$key];
+        return static::$container[$key];
     }
 }

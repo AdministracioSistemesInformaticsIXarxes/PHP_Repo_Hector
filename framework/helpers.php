@@ -1,10 +1,10 @@
 <?php
 
-function greet() {
+function greet(){
     $name = htmlspecialchars($_GET['name']);
-    $surname = $_GET ['surname'];
+    $cognom = htmlspecialchars($_GET['cognom']);
 
-    return "Hola $name $surname!";
+    return "Hola $name $cognom ";
 }
 
 function dd($xivato)

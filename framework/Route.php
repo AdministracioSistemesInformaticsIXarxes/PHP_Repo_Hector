@@ -1,25 +1,38 @@
 <?php
 
-namespace framework;
+namespace Framework;
+
+// NO -> $routes->routes -> Getter setters
+// SI -> SET $routes->define($routers)
+use http\Exception\RuntimeException;
 
 class Route
 {
-    public function define ($routes){
+    protected $routes = [];
+
+    public function register($route)
+    {
+        $this->routes[] = $route;
+    }
+
+    // CHAINING METHODS
+    public function define($routes)
+    {
         $this->routes = $routes;
         return $this;
     }
 
-    public function redirect ($uri)
+    public function redirect($uri)
     {
-        if (!array_key_exists($uri,$this->$routes)) {
-            require 'resources/views/errors/484.php';
+        if (!array_key_exists($uri,$this->routes)){
+            require '../resources/views/errors/404.php';
             return $this;
         }
-        if (!file_exists($this->routes[$uri])) {
-//            throw new \RuntimeException("No s'ha trobat el controlador:") . $this->routes[$uri];
+        if (!file_exists($this->routes[$uri])){
+            //throw new RuntimeException("No s'ha trobat el controlador:" . $this->routes[$uri]);
             dd("No s'ha trobat el controlador:" . $this->routes[$uri]);
-            }
-            require $this->redirect([$uri]);
-            return $this;
+        }
+        require $this->routes[$uri];
+        return $this;
     }
 }
